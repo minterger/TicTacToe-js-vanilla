@@ -11,9 +11,11 @@ body {
 h1 {
   text-align: center;
   margin: 20px 0;
+  text-decoration: 2px underline dashed #000;
 }
 
 p {
   padding: 10px;
   background-color: bisque;
+  margin: 0 20px;
 }
