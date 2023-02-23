@@ -48,3 +48,35 @@ nav ul li {
 nav ul li a {
   color: aliceblue;
 }
+
+.tictactoe {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: antiquewhite;
+  margin: 20px auto;
+  width: 300px;
+  height: 300px;
+}
+
+.tictactoe div {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+.border-top {
+  border-top: 2px solid #000;
+}
+.border-right {
+  border-right: 2px solid #000;
+}
+.border-left {
+  border-left: 2px solid #000;
+}
+.border-bottom {
+  border-bottom: 2px solid #000;
+}
