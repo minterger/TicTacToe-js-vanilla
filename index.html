@@ -4,41 +4,30 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>test error</title>
+    <title>Tic Tac Toe</title>
     <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
     <nav>
-      <span>TEST error</span>
+      <span>Tic-Tac-Toe</span>
       <ul>
         <li>
-          <a href="">Inicio</a>
-        </li>
-
-        <li>
-          <a href="">Comando</a>
-        </li>
-
-        <li>
-          <a href="">Master</a>
+          <a href="" target="_blank">GitHub</a>
         </li>
       </ul>
     </nav>
 
-    <h1>Hola</h1>
+    <h1>Juega Tic-Tac-Toe</h1>
     <p>
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. a Eligendi natus
-      eaque illum veritatis vero quos incidunt minus, consectetur eveniet
-      ducimus autem repudiandae rerum reprehenderit eius, ratione asperiores
-      dolor harum fuga cumque deserunt! Cupiditate officiis rerum rem, molestias
-      unde ut assumenda pariatur quam iusto fugiat necessitatibus explicabo
-      ullam distinctio aliquid ipsa eveniet ad impedit modi debitis harum! Quod
-      officiis natus nulla eligendi suscipit perferendis veniam sit? Aperiam,
-      perferendis quis excepturi id totam eligendi at facilis temporibus
-      deleniti, saepe pariatur maiores dolorem voluptatum dolores error quae
-      quasi qui neque natus atque hic earum fugit. Consectetur quis explicabo
-      repellat, exercitationem cupiditate eaque voluptates!
+      Tic-Tac-Toe es un juego simple para dos jugadores que, si ambos jugadores
+      lo juegan de manera óptima, siempre resultará en un empate. El juego
+      también se llama ceros y cruces o X y Os. Tic-tac-toe es un juego que
+      tradicionalmente se juega dibujándolo en papel, y se puede jugar en una
+      computadora o en una variedad de medios. Otros juegos, como Connect 4, se
+      basan en este clásico.
     </p>
+
+    <div class="center">Turno de <span class="jugador">❌</span></div>
 
     <div class="tictactoe">
       <div count="0" class="border-bottom border-right"></div>
@@ -51,6 +40,12 @@
       <div count="7" class="border-right"></div>
       <div count="8"></div>
     </div>
+
+    <div class="messageContainer hide">
+      <span class="message"></span>
+    </div>
+
+    <button class="restart">Reiniciar</button>
 
     <script src="./main.js"></script>
   </body>

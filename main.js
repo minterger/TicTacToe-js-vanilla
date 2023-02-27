@@ -1,4 +1,8 @@
 const tictactoe = document.querySelector("div.tictactoe");
+const jugador = document.querySelector(".jugador");
+const message = document.querySelector("span.message");
+const messageContainer = document.querySelector(".messageContainer");
+const restart = document.querySelector(".restart");
 
 let tablero = [];
 
@@ -10,17 +14,24 @@ const playerTwo = "⭕";
 
 let turn = playerOne;
 
+restart.addEventListener("click", () => {
+  setTimeout(limpiarTablero(), 2000);
+});
+
 tictactoe.addEventListener("click", (e) => {
   if (end || tie) {
     let restart = confirm("Quiere Reiniciar el juego?");
     if (restart) {
-      limpiarTablero(e.childNodes);
+      limpiarTablero();
     }
     return;
   }
 
   //numero en el tablero
   const num = e.target.attributes.count.value;
+
+  //verificar si esa posision esta ocupada
+  if (tablero[num]) return;
 
   // agregar jugador al tablero y al array de tablero
   if (turn === playerOne) {
@@ -33,7 +44,17 @@ tictactoe.addEventListener("click", (e) => {
 
   verificarEmpate();
 
+  // llena el tablero con el jugador que gano
+  if (end) {
+    tictactoe.childNodes.forEach((node) => {
+      node.innerText = turn;
+    });
+    return;
+  }
+
+  // cambia el turno
   turn = turn === playerOne ? playerTwo : playerOne;
+  jugador.innerText = turn;
 });
 
 const agregar = (num, posisionTablero) => {
@@ -49,8 +70,7 @@ const verificarGanador = () => {
       tablero[i] === tablero[i + 1] &&
       tablero[i] === tablero[i + 2]
     ) {
-      alert(`${turn} gano`);
-      end = !end;
+      messageGanador();
       return;
     }
   }
@@ -62,21 +82,18 @@ const verificarGanador = () => {
       tablero[i] === tablero[i + 3] &&
       tablero[i] === tablero[i + 6]
     ) {
-      alert(`${turn} gano`);
-      end = !end;
+      messageGanador();
       return;
     }
   }
 
   if (tablero[0] && tablero[0] === tablero[4] && tablero[0] === tablero[8]) {
-    alert(`${turn} gano`);
-    end = !end;
+    messageGanador();
     return;
   }
 
   if (tablero[2] && tablero[2] === tablero[4] && tablero[2] === tablero[6]) {
-    alert(`${turn} gano`);
-    end = !end;
+    messageGanador();
     return;
   }
 };
@@ -84,7 +101,9 @@ const verificarGanador = () => {
 const verificarEmpate = () => {
   tie = !tablero.includes(undefined) && tablero.length === 9;
   if (tie && !end) {
-    alert("empate");
+    message.innerHTML =
+      '<span class="bold">Empate</span><br/>Presiona el tablero nuevamente para reiniciar o preciona el boton!';
+    messageContainer.classList.remove("hide");
   }
 };
 
@@ -93,8 +112,18 @@ const limpiarTablero = () => {
     node.innerText = "";
   });
 
+  message.innerHTML = "";
+  messageContainer.classList.add("hide");
+
   end = false;
   tie = false;
   turn = playerOne;
   tablero = [];
+  jugador.innerText = turn;
+};
+
+const messageGanador = () => {
+  message.innerHTML = `${turn}<span class="bold">Gano</span><br/>Presiona el tablero nuevamente para reiniciar o presiona el boton!`;
+  messageContainer.classList.remove("hide");
+  end = !end;
 };
