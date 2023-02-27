@@ -103,8 +103,10 @@ nav ul li a {
 }
 
 .restart:active {
-  translate: 4px 4px;
-  box-shadow: none;
+  translate: 3px 3px;
+  box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 1);
+  -webkit-box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 1);
 }
 
 .messageContainer {
